@@ -1,0 +1,213 @@
+{
+  "A": {
+    "scenario": "A - Normal behavior",
+    "agent_id": "2c04ef65-66bb-4541-beb8-a5de0e001b25",
+    "final_state": "ACTIVE",
+    "trace": [
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [],
+        "severities": [],
+        "responses": [],
+        "agent_state_after": "ACTIVE"
+      },
+      {
+        "tool_used": "email_sender",
+        "data_source_used": null,
+        "action": "send_email",
+        "findings": [],
+        "severities": [],
+        "responses": [],
+        "agent_state_after": "ACTIVE"
+      }
+    ]
+  },
+  "B": {
+    "scenario": "B - Unauthorized tool",
+    "agent_id": "c8e11bbb-f9f4-4207-8754-a746151d8063",
+    "final_state": "BLOCKED",
+    "trace": [
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [],
+        "severities": [],
+        "responses": [],
+        "agent_state_after": "ACTIVE"
+      },
+      {
+        "tool_used": "file_delete",
+        "data_source_used": null,
+        "action": "delete",
+        "findings": [
+          "Agent attempted to use 'file_delete', which is not included in its active profile.",
+          "Agent performed action 'delete', which is not included in its active profile."
+        ],
+        "severities": [
+          "HIGH",
+          "MEDIUM"
+        ],
+        "responses": [
+          "BLOCK",
+          "REQUIRE_APPROVAL"
+        ],
+        "agent_state_after": "BLOCKED"
+      }
+    ]
+  },
+  "C": {
+    "scenario": "C - Guardrail escalation",
+    "agent_id": "4269a4cb-b602-43c2-8678-8240e2964e4a",
+    "final_state": "BLOCKED",
+    "trace": [
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [],
+        "severities": [],
+        "responses": [],
+        "agent_state_after": "ACTIVE"
+      },
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [],
+        "severities": [],
+        "responses": [],
+        "agent_state_after": "ACTIVE"
+      },
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [],
+        "severities": [],
+        "responses": [],
+        "agent_state_after": "ACTIVE"
+      },
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [],
+        "severities": [],
+        "responses": [],
+        "agent_state_after": "ACTIVE"
+      },
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [],
+        "severities": [],
+        "responses": [],
+        "agent_state_after": "ACTIVE"
+      },
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [],
+        "severities": [],
+        "responses": [],
+        "agent_state_after": "ACTIVE"
+      },
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [],
+        "severities": [],
+        "responses": [],
+        "agent_state_after": "ACTIVE"
+      },
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [
+          "Guardrail 'calls_per_day' reached 80% of its limit (8/10)."
+        ],
+        "severities": [
+          "LOW"
+        ],
+        "responses": [
+          "NOTIFY"
+        ],
+        "agent_state_after": "ACTIVE"
+      },
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [
+          "Guardrail 'calls_per_day' reached 90% of its limit (9/10)."
+        ],
+        "severities": [
+          "MEDIUM"
+        ],
+        "responses": [
+          "REQUIRE_APPROVAL"
+        ],
+        "agent_state_after": "PAUSED"
+      },
+      {
+        "auto_approved_finding": "87428243-6732-47d7-aac0-e2c6430afdd1",
+        "actor": "ops@flyyy.ai"
+      },
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [
+          "Guardrail 'calls_per_day' reached 100% of its limit (10/10)."
+        ],
+        "severities": [
+          "HIGH"
+        ],
+        "responses": [
+          "BLOCK"
+        ],
+        "agent_state_after": "BLOCKED"
+      }
+    ]
+  },
+  "D": {
+    "scenario": "D - Human approval",
+    "agent_id": "c31034d8-793d-4e66-b063-3fccdfff54ca",
+    "state_after_deviation": "PAUSED",
+    "pending_finding_id": "08aa7b6f-ba93-4f2f-93b9-ab5581f1581c",
+    "trace": [
+      {
+        "tool_used": "faq_search",
+        "data_source_used": "faq_database",
+        "action": "read",
+        "findings": [],
+        "severities": [],
+        "responses": [],
+        "agent_state_after": "ACTIVE"
+      },
+      {
+        "tool_used": null,
+        "data_source_used": null,
+        "action": "update_profile",
+        "findings": [
+          "Agent performed action 'update_profile', which is not included in its active profile."
+        ],
+        "severities": [
+          "MEDIUM"
+        ],
+        "responses": [
+          "REQUIRE_APPROVAL"
+        ],
+        "agent_state_after": "PAUSED"
+      }
+    ],
+    "next_step": "POST /findings/08aa7b6f-ba93-4f2f-93b9-ab5581f1581c/approve or /reject to complete the loop"
+  }
+}
