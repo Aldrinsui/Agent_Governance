@@ -1,4 +1,4 @@
-# FLYYY.AI — Agent Governance
+#  Agent Governance
 
 A system that defines what an AI agent is allowed to do, watches what it actually does, detects deviations with evidence, and responds proportionally — with every decision recorded in an auditable trail.
 
